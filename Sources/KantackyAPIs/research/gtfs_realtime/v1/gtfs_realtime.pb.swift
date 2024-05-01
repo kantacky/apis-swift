@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct Research_GtfsRealtime_V1_ListVehiclePositionsRequest {
+public struct Research_GtfsRealtime_V1_ListVehiclesPositionsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -46,7 +46,30 @@ public struct Research_GtfsRealtime_V1_ListVehiclePositionsRequest {
   fileprivate var _timestamp: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
-public struct Research_GtfsRealtime_V1_ListVehiclePositionsResponse {
+public struct Research_GtfsRealtime_V1_ListVehiclesPositionsResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var result: Kantacky_Foundation_V1_Result {
+    get {return _result ?? Kantacky_Foundation_V1_Result()}
+    set {_result = newValue}
+  }
+  /// Returns true if `result` has been explicitly set.
+  public var hasResult: Bool {return self._result != nil}
+  /// Clears the value of `result`. Subsequent reads from it will return its default value.
+  public mutating func clearResult() {self._result = nil}
+
+  public var vehiclePositions: [Research_GtfsRealtime_V1_VehiclePosition] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _result: Kantacky_Foundation_V1_Result? = nil
+}
+
+public struct Research_GtfsRealtime_V1_ListVehiclePositionsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -54,11 +77,55 @@ public struct Research_GtfsRealtime_V1_ListVehiclePositionsResponse {
   /// Agency ID (UUID)
   public var agencyID: String = String()
 
+  public var vehicleID: String = String()
+
+  public var timestampFrom: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _timestampFrom ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_timestampFrom = newValue}
+  }
+  /// Returns true if `timestampFrom` has been explicitly set.
+  public var hasTimestampFrom: Bool {return self._timestampFrom != nil}
+  /// Clears the value of `timestampFrom`. Subsequent reads from it will return its default value.
+  public mutating func clearTimestampFrom() {self._timestampFrom = nil}
+
+  public var timestampTo: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _timestampTo ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_timestampTo = newValue}
+  }
+  /// Returns true if `timestampTo` has been explicitly set.
+  public var hasTimestampTo: Bool {return self._timestampTo != nil}
+  /// Clears the value of `timestampTo`. Subsequent reads from it will return its default value.
+  public mutating func clearTimestampTo() {self._timestampTo = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _timestampFrom: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+  fileprivate var _timestampTo: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+}
+
+public struct Research_GtfsRealtime_V1_ListVehiclePositionsResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var result: Kantacky_Foundation_V1_Result {
+    get {return _result ?? Kantacky_Foundation_V1_Result()}
+    set {_result = newValue}
+  }
+  /// Returns true if `result` has been explicitly set.
+  public var hasResult: Bool {return self._result != nil}
+  /// Clears the value of `result`. Subsequent reads from it will return its default value.
+  public mutating func clearResult() {self._result = nil}
+
   public var vehiclePositions: [Research_GtfsRealtime_V1_VehiclePosition] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _result: Kantacky_Foundation_V1_Result? = nil
 }
 
 public struct Research_GtfsRealtime_V1_VehiclePosition {
@@ -186,6 +253,8 @@ public struct Research_GtfsRealtime_V1_VehiclePosition {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension Research_GtfsRealtime_V1_ListVehiclesPositionsRequest: @unchecked Sendable {}
+extension Research_GtfsRealtime_V1_ListVehiclesPositionsResponse: @unchecked Sendable {}
 extension Research_GtfsRealtime_V1_ListVehiclePositionsRequest: @unchecked Sendable {}
 extension Research_GtfsRealtime_V1_ListVehiclePositionsResponse: @unchecked Sendable {}
 extension Research_GtfsRealtime_V1_VehiclePosition: @unchecked Sendable {}
@@ -195,8 +264,8 @@ extension Research_GtfsRealtime_V1_VehiclePosition: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "research.gtfs_realtime.v1"
 
-extension Research_GtfsRealtime_V1_ListVehiclePositionsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListVehiclePositionsRequest"
+extension Research_GtfsRealtime_V1_ListVehiclesPositionsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ListVehiclesPositionsRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "agency_id"),
     2: .same(proto: "timestamp"),
@@ -234,7 +303,7 @@ extension Research_GtfsRealtime_V1_ListVehiclePositionsRequest: SwiftProtobuf.Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Research_GtfsRealtime_V1_ListVehiclePositionsRequest, rhs: Research_GtfsRealtime_V1_ListVehiclePositionsRequest) -> Bool {
+  public static func ==(lhs: Research_GtfsRealtime_V1_ListVehiclesPositionsRequest, rhs: Research_GtfsRealtime_V1_ListVehiclesPositionsRequest) -> Bool {
     if lhs.agencyID != rhs.agencyID {return false}
     if lhs._timestamp != rhs._timestamp {return false}
     if lhs.bufferSeconds != rhs.bufferSeconds {return false}
@@ -243,10 +312,10 @@ extension Research_GtfsRealtime_V1_ListVehiclePositionsRequest: SwiftProtobuf.Me
   }
 }
 
-extension Research_GtfsRealtime_V1_ListVehiclePositionsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".ListVehiclePositionsResponse"
+extension Research_GtfsRealtime_V1_ListVehiclesPositionsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ListVehiclesPositionsResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "agency_id"),
+    1: .same(proto: "result"),
     2: .standard(proto: "vehicle_positions"),
   ]
 
@@ -256,7 +325,7 @@ extension Research_GtfsRealtime_V1_ListVehiclePositionsResponse: SwiftProtobuf.M
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.agencyID) }()
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._result) }()
       case 2: try { try decoder.decodeRepeatedMessageField(value: &self.vehiclePositions) }()
       default: break
       }
@@ -264,9 +333,109 @@ extension Research_GtfsRealtime_V1_ListVehiclePositionsResponse: SwiftProtobuf.M
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._result {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    if !self.vehiclePositions.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.vehiclePositions, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Research_GtfsRealtime_V1_ListVehiclesPositionsResponse, rhs: Research_GtfsRealtime_V1_ListVehiclesPositionsResponse) -> Bool {
+    if lhs._result != rhs._result {return false}
+    if lhs.vehiclePositions != rhs.vehiclePositions {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Research_GtfsRealtime_V1_ListVehiclePositionsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ListVehiclePositionsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "agency_id"),
+    2: .standard(proto: "vehicle_id"),
+    3: .standard(proto: "timestamp_from"),
+    4: .standard(proto: "timestamp_to"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.agencyID) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.vehicleID) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._timestampFrom) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._timestampTo) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.agencyID.isEmpty {
       try visitor.visitSingularStringField(value: self.agencyID, fieldNumber: 1)
     }
+    if !self.vehicleID.isEmpty {
+      try visitor.visitSingularStringField(value: self.vehicleID, fieldNumber: 2)
+    }
+    try { if let v = self._timestampFrom {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._timestampTo {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Research_GtfsRealtime_V1_ListVehiclePositionsRequest, rhs: Research_GtfsRealtime_V1_ListVehiclePositionsRequest) -> Bool {
+    if lhs.agencyID != rhs.agencyID {return false}
+    if lhs.vehicleID != rhs.vehicleID {return false}
+    if lhs._timestampFrom != rhs._timestampFrom {return false}
+    if lhs._timestampTo != rhs._timestampTo {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Research_GtfsRealtime_V1_ListVehiclePositionsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ListVehiclePositionsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "result"),
+    2: .standard(proto: "vehicle_positions"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._result) }()
+      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.vehiclePositions) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._result {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
     if !self.vehiclePositions.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.vehiclePositions, fieldNumber: 2)
     }
@@ -274,7 +443,7 @@ extension Research_GtfsRealtime_V1_ListVehiclePositionsResponse: SwiftProtobuf.M
   }
 
   public static func ==(lhs: Research_GtfsRealtime_V1_ListVehiclePositionsResponse, rhs: Research_GtfsRealtime_V1_ListVehiclePositionsResponse) -> Bool {
-    if lhs.agencyID != rhs.agencyID {return false}
+    if lhs._result != rhs._result {return false}
     if lhs.vehiclePositions != rhs.vehiclePositions {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

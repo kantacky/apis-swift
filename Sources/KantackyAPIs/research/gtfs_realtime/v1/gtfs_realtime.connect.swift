@@ -9,6 +9,11 @@ import SwiftProtobuf
 
 public protocol Research_GtfsRealtime_V1_GtfsrealtimeServiceClientInterface: Sendable {
 
+    /// List positions of all vehicles of the agency
+    @available(iOS 13, *)
+    func `listVehiclesPositions`(request: Research_GtfsRealtime_V1_ListVehiclesPositionsRequest, headers: Connect.Headers) async -> ResponseMessage<Research_GtfsRealtime_V1_ListVehiclesPositionsResponse>
+
+    /// List positions of a specific vehicle of the agency
     @available(iOS 13, *)
     func `listVehiclePositions`(request: Research_GtfsRealtime_V1_ListVehiclePositionsRequest, headers: Connect.Headers) async -> ResponseMessage<Research_GtfsRealtime_V1_ListVehiclePositionsResponse>
 }
@@ -22,12 +27,18 @@ public final class Research_GtfsRealtime_V1_GtfsrealtimeServiceClient: Research_
     }
 
     @available(iOS 13, *)
+    public func `listVehiclesPositions`(request: Research_GtfsRealtime_V1_ListVehiclesPositionsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Research_GtfsRealtime_V1_ListVehiclesPositionsResponse> {
+        return await self.client.unary(path: "/research.gtfs_realtime.v1.GTFSRealtimeService/ListVehiclesPositions", idempotencyLevel: .unknown, request: request, headers: headers)
+    }
+
+    @available(iOS 13, *)
     public func `listVehiclePositions`(request: Research_GtfsRealtime_V1_ListVehiclePositionsRequest, headers: Connect.Headers = [:]) async -> ResponseMessage<Research_GtfsRealtime_V1_ListVehiclePositionsResponse> {
         return await self.client.unary(path: "/research.gtfs_realtime.v1.GTFSRealtimeService/ListVehiclePositions", idempotencyLevel: .unknown, request: request, headers: headers)
     }
 
     public enum Metadata {
         public enum Methods {
+            public static let listVehiclesPositions = Connect.MethodSpec(name: "ListVehiclesPositions", service: "research.gtfs_realtime.v1.GTFSRealtimeService", type: .unary)
             public static let listVehiclePositions = Connect.MethodSpec(name: "ListVehiclePositions", service: "research.gtfs_realtime.v1.GTFSRealtimeService", type: .unary)
         }
     }
